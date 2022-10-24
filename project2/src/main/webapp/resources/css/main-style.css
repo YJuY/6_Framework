@@ -1,0 +1,473 @@
+*{ /* 모두에게 적용3# */
+    box-sizing: border-box;
+
+    /* HTML 요소가 가지고 있는 고유한 padding, margin을 모두 없앰 ->없애야 이뻐짐*/
+    padding: 0;
+    margin: 0;
+}
+
+/* 영역나눌때 쓰는## */
+/* 분할된 영역에 테두리를 추가 */
+/* div, span, main, header, footer, nav, aside, section, article{
+    border : 1px solid black;
+} */
+
+/* 본격적 영역분할## */
+/* main */
+main{
+    width: 1140px;
+    margin: auto; /* body태그 가로방향 가운데 배치 */
+}
+
+/* footer */
+footer{
+    height: 200px;
+    /* #넓이는 div 태그가 -> display */
+    background-color: #a3add342;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > p{
+    font-weight: bold;
+    margin: 16px 0;
+}
+
+footer > article > *{
+    font-size: 14px;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+}
+
+footer span{
+    padding : 0 10px;
+}
+
+
+/* ##밑에부터 페이지가 늘어남 */
+/* header */
+header{ /* ##hearder태그에 flex를 주면 옆으로 배치가능 */
+    height: 200px;
+    display: flex;
+    /* 내부 요소를 유연하게 배치/정렬 
+        -> 내부 요소의 자동으로 지정된 margin이 모두 사라져
+           한 줄(기본값 row)로 배치
+    */
+}
+
+/* #헤더 폭늘려주기위해 */
+
+/* 
+    flex-basis를 이용해서 main-axis 방향으로 일정한 크기를 갖게 하고
+    displaly : flex; 설정 시 지정되는 
+    align-items의 기본값 stretch를 이용해서 
+    item의 높이(cross-axis 방향)를 부모만큼 늘어나게 함
+*/
+header > section:nth-child(1){ flex-basis : 15%} /* #내부에 고유한 값 지정 /flex-basis :중심축방향으로 일정한 크기 같도록*/
+header > section:nth-child(2){ flex-basis : 70%}
+header > section:nth-child(3){ flex-basis : 15%}
+/* ###align-tiems -> 기본값 stretch(교착축 방향으로 늘리겠다) 즉 자동으로 부모 높이만큼 늘어나 있음 */
+
+/* 로고 */
+#home-logo{
+    width: 120px;
+}
+
+/* 검색창 */
+/* 검색창 전체 너비 지정 */
+.search-area{ width: 500px;}
+
+/* 검색창 테두리 #후손은 띄어쓰기 한번해서 쓰기 */
+.search-area fieldset{
+    padding: 2px;
+    margin : 0;
+    border: 2px solid #455ba8;
+    border-radius: 5px;
+
+    display: flex;/* #내부요소 유연하게 */
+}
+
+/* 검색어 입력 상자 */
+#query{
+    padding: 10px; /* 검색창의 크기 를 크게해줌 */
+    font-size: 18px; /* 검색창큰데 글자 크기 작아서 늘려줌 */
+    font-weight: bold;
+
+    /* 테두리 없애기 */
+    border : 0; 
+    border : none;/* 검색어를 ~~...여기 테두리 없애주기 */
+
+    /* input만 가지고 있는거 아웃라인  */
+
+    /* outline : input 요소에 포커스가 맞춰 졌을 때 이를 표현하기 위한 바깥 선 */
+    outline: none; /* 0도 가능! */
+
+    /* flex-basis: ; -> 내용이 세로로 바뀔거 생각해서 이걸로 했는데 검색어는 안그럼 */
+
+    width: 92%;
+}
+
+/* 검색 버튼 */
+#search-btn{
+    width: 8%;
+    background-color: white;
+    border: none;
+
+    /* icon은 보통 특수문자 같은 문자로 취급되서 글자, 글꼴 스타일 적용 가능 #12cm */
+    font-size: 1.2em;
+    color:#455ba8;
+    cursor: pointer; /* 마우스 커서 손가락 모양 */
+}
+
+/* 검색창 가운데 배치 */
+header > section:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+header > section:nth-child(1){
+    /* 선택자가 중복 작성되어도 오류 X, 모든 CSS 속성이 적용됨 #위에써도 괜찮음*/
+    display:flex; /* #로고 중간으로 옴기기 위해 */
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* nav */
+nav{
+    height: 50px;
+    border-bottom: 2px solid black;
+
+    position: sticky; /* 화면에서 벗어나도 위에 스티커처럼 나타남 */
+    /* 화면 밖으로 요소가 벗어 났을 때 지정된 위치에 고정 */
+
+    /* 어디 고정할지 지정 */
+    top : 0;
+
+    background-color: white;
+
+}
+/* ul 스타일 지정 */
+nav > ul{
+    margin: 0;
+    padding: 0;
+    list-style: none; /* li 태그 앞에 점 삭제 */
+
+    display: flex;
+    height: 100%; /* #내부태그 꽉차게 */
+
+}
+
+/* 네비게이터 메뉴 */
+nav li{
+    /* 둘 다 같은 결과 */
+    /* width: 150px;*/
+    flex-basis: 150px;
+}
+
+/* 메뉴 내부 a태그 */
+nav li > a{ /* 내부안에 list아이템에 a태그들 */
+    text-decoration: none; /* 밑줄 없애기 */
+    font-size : 18px;
+    font-weight: bold;
+    color: black;
+    /* a태그는 inline형식이라서 글자에만 올려야 마우스커서 변함
+    blokc으로 ㅂ꾸면 곽채워져서 클릭가능 하이트로 노100으로 */
+
+    display: block;
+    height: 100%;
+
+    /* 글자를 정가운데 배치 */
+
+    /* padding: 11px 0; #padding : 테두리와내용사이 간격 */
+         /* 세로 가로 */
+    /* text-align: center; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 내부에 작성된 글자를 요소로 취급해서 정가운데 배치 */
+
+    border-radius: 5px;
+    transition-duration: 0.1s;
+}
+
+/* 메뉴에 마우스가 올라왔을 때 */
+nav li > a:hover{
+    background-color: #455ba8;
+    color : white;
+
+    /*  */
+}
+
+
+
+
+
+/* content */
+section.content{/* #section중에 content */
+    height: 800px;
+    display: flex;/* #안에 요소 flex로 배치 */
+}
+
+.content-1{ flex-basis: 70%;}
+.content-2{ flex-basis: 30%;}
+
+/* login 폼 */
+form[name='login-frm']{
+    height: 150px;
+    padding : 10px;
+    margin-top: 10px;
+
+    display: flex;
+
+    /* 중심축을 세로 변경 */
+    flex-direction: column;
+
+    /* 중심축 가운데 배치 */
+    justify-content: center;
+}
+
+/* 아이디, 비밀번호, 로그인 버튼 영역 */
+#id-pw-area{
+    margin :0;
+    padding:0;
+
+    border :1px solid #ddd;
+
+    display: flex; /* 컨테이너용 속성 */
+
+    /* form태그 내부에서 중심축 방향으로 60%만큼 차지 */
+    flex-basis: 60%; /* 아이템용 속성 */
+}
+
+/* id, pw 영역 */
+#id-pw-area > section:first-child{
+    flex-basis: 75%;
+    display: flex;
+    flex-direction: column; /* 중심축 방향으로 스트레치 때문에 꽉차있음 */
+}
+
+/* id/pw input 태그 */
+#id-pw-area > section:first-child >input{
+    flex-basis: 50%;
+    
+    border: none;
+    outline : none;
+    padding : 5px;
+
+    border-right: 1px solid #ddd;
+    
+}
+
+/* id, pw 사이 선 */
+#id-pw-area > section:first-child > input:first-child{
+    border-bottom: 1px solid #ddd;
+}
+
+/* id, pw, input 태그에 포커스가 맞춰졌을 때 */
+#id-pw-area > section:first-child >input:focus{
+    border : 2px solid #455ba8;
+}
+
+/* 로그인 버튼 영역 */
+#id-pw-area > section:last-child{
+    flex-basis: 25%;
+    /* display: flex; */
+    
+}
+
+/* 로그인 버튼 */
+#id-pw-area > section:last-child > button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+#id-pw-area > section:last-child > button:hover{
+    background-color: #455ba8;
+    color:white;
+}
+
+
+/* 회원가입 / ID/PW 찾기 영역 */
+#signUp-find-area{
+    margin-top: 10px; /* 다른요소와의 간격을 10px-> 밑으로 조금 내려감 */
+    padding-left: 5px;
+}
+
+#signUp-find-area > a{
+    text-decoration: none;
+    color : black;
+    font-size: 14px;
+}
+
+#signUp-find-area>span{
+    padding: 0 10px;
+            /* 세로 가로 -> 세로는 안하고 가로로만 10px 주겠다*/
+}
+
+form[name='login-frm'] > label{
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* ************************************* */
+
+header{ position : relative; /* 상대적 기준 제공 */}
+
+#header-top-menu{
+    position: absolute;
+    right: 0;
+    top: 5px;
+
+}
+
+#header-top-menu a{
+    text-decoration: none;
+    color: black;
+}
+
+#header-top-menu *{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* 메뉴 on/off 체크박스 */
+#header-menu-toggle{
+    display: none;
+}
+
+/* 오른쪽 상단 닉네임 */
+/* label 태그 중 for 속성 값이 header-menu-top */
+label[for='header-menu-toggle']{
+    cursor: pointer;
+}
+
+label[for='header-menu-toggle']:hover{
+    text-decoration: underline;
+}
+
+/* 체크박스 다음 div */
+#header-menu-toggle + div{ display: none;}
+
+/* 체크박스가 체크된 경우 다음 div(#체크박스가 체크된 다음보여지게하겠다) */
+#header-menu-toggle:checked + div{ display: block;}
+
+/* 닉네임 클리 시 보이는 메뉴 */
+#header-menu{
+    position: absolute;
+    z-index: 500;/* #z축 500층 다른거랑 안겹침*/
+    width: 100px;
+    height: 80px;
+    right: 0;
+    margin-top: 5px;
+    border: 1px solid black;
+}
+
+#header-menu > a{
+    display: flex;
+    height: 50%;
+    justify-content: center;
+    /* #가로방향 : 가운데 */
+    align-items: center;
+    /* #교차축 방향 : 가운데 */
+}
+
+#header-menu > a:first-child{
+    border-bottom: 1px solid #ccc;
+}
+
+#header-menu > a:hover{
+    background-color: #455ba890;
+}
+/* *********************************************************** */
+
+/* 로그인 성공 시 화면 */
+.login-area{
+    height :120px;
+    padding: 30px 10px;
+    margin: 10px 0;
+
+    border : 1px solid black;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center; /* cross axis 방향으로 가운데 정렬 */
+
+}
+
+/* 프로필 이미지 */
+#member-profile{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%; /* 원형 모양 */
+}
+
+/* 프로필 이미지를 감싸고 있는 a 태그 */
+.login-area > a{
+    display: block;
+    width: 70px;
+    height: 70px;
+    border: 3px solid #ddd;
+    border-radius: 50%;
+}
+
+/* 회원정보 + 로그아웃 버튼 영역 */
+.my-info{
+    width:100%;
+    height: 100%;
+    margin-left: 20px;
+
+}
+.my-info > div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-info a{ text-decoration: none;}
+
+/* 닉네임 */
+#nickname{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -3px;
+}
+
+/* 로그아웃 버튼 */
+#logout-btn{
+    color : gray;
+    font-size: 14px;
+    font-weight: bold;
+
+    border: 2px solid gray;
+    padding : 3px 5px;
+    border-radius: 10px;
+}
+
+#logout-btn:hover{
+    color: white;
+    background-color: gray;
+}
+
+#logout-btn:active{
+    transform: scale(0.8);
+}
+
+.my-info > p{
+    margin: 0;
+    color: gray;
+}
