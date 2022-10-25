@@ -76,11 +76,11 @@
                             <!-- 아이디, 비밀번호, 로그인버튼 -->
                             <fieldset id="id-pw-area"><!-- #테두리 있으니가 fieldset으로 나눔 -->
                                 <section>
-                                    <input type="text" name="inputEmail" 
+                                    <input type="text" name="memberEmail" 
                                         placeholder="이메일" autocomplete="off" value="${cookie.saveId.value}">
                                                                             <%-- 쿠키 중 saveId에 저장된 값 --%>
                                     <!-- autocomplete="off" 자동완성 OFF -->
-                                    <input type="password" name="inputPw" placeholder="비밀번호">
+                                    <input type="password" name="memberPw" placeholder="비밀번호">
                                 </section>
                                 <section>
                                     <!-- typre="submit"이 기본값** -->
