@@ -17,15 +17,13 @@
     </article>
 </footer>
 
-<%-- session scope에 message 속성이 존재한는 경우 
-     alert창을 이용해서 내용을 출력
- --%>
+    <%--  message 속성이 존재하는 경우 
+    alert창을 이용해서 내용을 출력 --%>
+    <c:if test="${not empty message}">
+        <script>
+            alert("${message}");
+        </script>
 
- <c:if test="${not empty sessionScope.message}">
-    <script>
-        alert("${sessionScope.message}");
-    </script>
-    
-    <%-- message 1회 출력 후 session scope에서 삭제 --%>
-    <c:remove var="message" scope="session"/>
- </c:if>
+        <%-- message 1회 출력 후 모든 scope에서 삭제 --%>
+        <c:remove var="message" />
+    </c:if>

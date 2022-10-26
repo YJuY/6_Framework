@@ -23,4 +23,11 @@ public interface MemberService {
 	 */
 
 	public abstract Member login(Member inputMember);
-}
+
+	/**
+	 * @param inputMember
+	 * @return
+	 */
+	public abstract int signUp(Member inputMember);
+	
+ }
