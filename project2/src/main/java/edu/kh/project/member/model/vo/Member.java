@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 // lombok 라이브러리
-@NoArgsConstructor
+@NoArgsConstructor //기본생성자
 @Getter // EL작성시 필요
 @Setter
 @ToString
