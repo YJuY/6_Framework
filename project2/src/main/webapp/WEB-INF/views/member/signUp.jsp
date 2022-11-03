@@ -168,6 +168,7 @@
         }).open();
     }
 </script>
-
+<%-- myPage.js external 방식으로 추가 --%>
+    <script scr="/resources/js/member/myPage.js"></script>
 </body>
 </html>

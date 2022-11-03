@@ -169,7 +169,7 @@ public class MyPageController {
 		}else { // 실패
 			message = "비밀번호가 일치하지 않습니다.";
 			
-			path = "member/myPage-delete"; // 탈퇴 페이지
+			path = "delete"; // 탈퇴 페이지
 		}
 		
 		// message 전달 코드 작성
