@@ -37,7 +37,7 @@
                     <button type="button">인증번호 받기</button>
                 </div>
 
-                <span class="singUp-message">메일을 받을 수 있는 이메일을 입력해주세요</span>
+                <span class="singUp-message" id="emailMessage">메일을 받을 수 있는 이메일을 입력해주세요</span>
 
 
 
@@ -72,12 +72,12 @@
                             placeholder="비밀번호 확인" maxlength="20" required>
                 </div>
 
-                <span class="singUp-message error">비밀번호가 일치하지 않습니다.</span>
+                <span class="singUp-message" id="pwMessage">영어, 숫자, 특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.</span>
 
                 
                 <!-- 닉네임 입력 -->
                 <label for="memberNickname">
-                    <span class="required">*</span> 비밀번호
+                    <span class="required">*</span> 닉네임
                 </label>
 
                 <div class="signUp-input-area">
@@ -86,7 +86,7 @@
                             value="${tempMember.memberNickname}">
                 </div>
 
-                <span class="singUp-message confirm">사용 가능한 닉네임 입니다.</span>
+                <span class="singUp-message" id="nickMessage">한글,영어,숫자로만 2~10글자</span>
 
                 
                 <!-- 전화번호 입력 -->
@@ -100,7 +100,7 @@
                             value="${tempMember.memberTel}">
                 </div>
 
-                <span class="singUp-message error">전화번호 형식이 올바르지 않습니다.</span>
+                <span class="singUp-message" id="telMessage">전화번호를 입력해주세요.(-제외)</span>
 
                 <%-- a,,b,,c --%>
 
@@ -168,7 +168,11 @@
         }).open();
     }
 </script>
+
 <%-- myPage.js external 방식으로 추가 --%>
-    <script scr="/resources/js/member/myPage.js"></script>
+<script src="/resources/js/member/myPage.js"></script>
+
+<script src="/resources/js/member/signUp.js"></script>
+
 </body>
 </html>
