@@ -156,6 +156,7 @@ nav{
 
     background-color: white;
 
+    z-index: 1000;
 }
 /* ul 스타일 지정 */
 nav > ul{
@@ -470,4 +471,17 @@ label[for='header-menu-toggle']:hover{
 .my-info > p{
     margin: 0;
     color: gray;
+}
+
+
+#coontent-1-2{
+    width: 500px;
+    margin: 50px auto;                                                                                    
+}
+
+.secession{
+    background-color: rgb(216, 214, 241);
+}
+.secession >td:first-of-type{
+    text-decoration: line-through; /* 가운데 선 */
 }

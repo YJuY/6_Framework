@@ -63,7 +63,13 @@
 	</update>
 	
 	
-	
+	<!-- 프로필 이미지 수정 -->
+	<!-- ####parameterType : 마이바티스 콘피그 왁인 or 안써도됨  -->
+	<update id="updateProfile">
+		UPDATE "MEMBER" SET
+		PROFILE_IMG = #{profileImage}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
 	
 	
 	

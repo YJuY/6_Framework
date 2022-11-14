@@ -184,17 +184,25 @@ form[name='myPage-frm']{
     border-radius: 50%;
 
     position: relative;
+
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #profile-image{
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+}
+form[name='myPage-frm']{
+    position: relative;
 }
 
 #delete-image{
     position:absolute;
-    top: 0px;
-    right: 0px;
+    top: -2px;
+    right: 240px;
     cursor: pointer;
 }
 

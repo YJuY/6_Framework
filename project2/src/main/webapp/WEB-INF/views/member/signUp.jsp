@@ -34,7 +34,7 @@
                             <%-- alue="${tempMember.memberEmail} ==> 이페이지에서만 1회성 다른 P에서 사라짐--%>
                                             <!--autocomplete : 자동완성 required : 필수입력-->
 
-                    <button type="button">인증번호 받기</button>
+                    <button id="sendAuthKeyBtn" type="button">인증번호 받기</button>
                 </div>
 
                 <span class="singUp-message" id="emailMessage">메일을 받을 수 있는 이메일을 입력해주세요</span>
@@ -47,15 +47,15 @@
                 </label>
 
                 <div class="signUp-input-area">
-                    <input type="text" name="emailCheck" id="emailCheck" 
+                    <input type="text" name="emailCheck" id="authKey" 
                             placeholder="인증번호 입력" maxlength="6" autocomplete="off" required>
                                             <!--autocomplete : 자동완성 required : 필수입력-->
 
-                    <button type="button">인증하기</button>
+                    <button id="checkAuthKeyBtn" type="button">인증하기</button>
                 </div>
 
-                <span class="singUp-message confirm">인증되었습니다.</span>
-                                     <!--  / 인증번호가 일치하지 않습니다. -->
+                <span id="authKeyMessage" class="singUp-message"></span>
+                
 
                 
                 <!-- 비밀번호/비밀번호 확인 입력 -->
@@ -172,8 +172,6 @@
 <%-- jQuery 라이브러리(.js 파일) 추가(CDN 방식) --%>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <%-- myPage.js external 방식으로 추가 --%>
-<script src="/resources/js/member/myPage.js"></script>
-
 <script src="/resources/js/member/signUp.js"></script>
 
 </body>
