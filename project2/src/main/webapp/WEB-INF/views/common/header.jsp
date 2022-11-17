@@ -82,6 +82,11 @@
                 <li><a href="/board/${boardType.key}/list">${boardType.value}</a></li>
                 </c:forEach>
 
+                <c:forEach var="" items="${boardTypeList}">
+                    <li>
+                        <a herf="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                    </li>
+                </c:forEach>
 
             </ul>
     
