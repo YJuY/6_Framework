@@ -47,8 +47,17 @@ public class BoardDAO {
 		//					 ( 몇 행을 건너 뛸것인가?)
 		int offset = (pagination.getCurrentPage() -1) * pagination.getLimit(); // 건너뛸 수 계싼//pagination.getLimit() : 몇개 조회?
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-		return sqlSession.selectList("boardMapper.selectBoardList", pagination, rowBounds);
+		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 									// namespace.id  			  , 파라미터    , RowBounds 객체
 									// 								파라미터가 없을 경우 null 대입
+	}
+
+
+	/** 게시글 상세 조회 + 이미지 목록 조회 + 댓글 목록 조회
+	 * @param boardNo
+	 * @return 
+	 */
+	public Board selectBoardDetail(int boardNo) {
+		return sqlSession.selectOne("boardMapper.selectBoardDetail", boardNo);
 	}
 }

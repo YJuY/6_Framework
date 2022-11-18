@@ -184,7 +184,7 @@ a:hover {
     height: 100%;
 
     display: none;
-    z-index: 50;
+    z-index: 1000;
 
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -211,6 +211,7 @@ a:hover {
 
 /* @keyframes : 
 애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써 CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  */
+/* display 변경 시 트래지션이 적용되지 않으므로 애니메이션 사용 */
 @keyframes show {
     from {opacity: 0;}
     to {opacity: 1;}

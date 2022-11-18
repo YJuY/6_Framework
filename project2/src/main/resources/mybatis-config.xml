@@ -19,6 +19,8 @@
 		<typeAliases>
 			<typeAlias type="edu.kh.project.member.model.vo.Member" alias="Member"/>
 			<typeAlias type="edu.kh.project.board.model.vo.Board" alias="Board"/>
+			<typeAlias type="edu.kh.project.board.model.vo.BoardImage" alias="BoardImage"/>
+			<typeAlias type="edu.kh.project.board.model.vo.Comment" alias="Comment"/>
 		</typeAliases>
 		
 		
