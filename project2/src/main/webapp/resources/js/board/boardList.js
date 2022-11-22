@@ -47,3 +47,15 @@
 
     }
 })();
+
+// 글쓰기 버튼 (즉시 실행 함수로 작성 (()=>{})();)
+(()=>{
+    const insertBtn = document.getElementById("insertBtn");
+
+    if(insertBtn != null){ // 버튼이 존재할 때만
+        insertBtn.addEventListener("click", () =>{
+            location.href = "/write/"+boardCode;    
+        })
+
+    }
+})();

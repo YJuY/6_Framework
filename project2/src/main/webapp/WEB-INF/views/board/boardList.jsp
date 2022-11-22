@@ -60,9 +60,9 @@
                                         <img class="list-thumbnail" src="${board.thumbnail}">
 
                                     </c:if>
-                                        <%-- /board/1/1500
-                                             /board/{boardCode}/{boardNp} --%>
-                                        <a href="/board/${boardCode}/${board.boardNo}">${board.boardTitle}</a>   
+                                        <%-- /board/1/1500?cp=1
+                                             /board/{boardCode}/{boardNo}?cp=${pagination.currentPage} --%>
+                                        <a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a>   
                                         [${board.commentCount}]                        
                                     </td>
                                     <td>${board.memberNickname}</td>
@@ -83,9 +83,12 @@
 
 
             <div class="btn-area">
-
-				<!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
-                <button id="insertBtn">글쓰기</button>                     
+            
+                <!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
+                <c:if test="${not empty sessionScope.loginMember}">
+                    <button id="insertBtn">글쓰기</button>          
+                </c:if>
+				           
 
             </div>
 
@@ -157,7 +160,9 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-
+    <script>
+        const boardCode = "${boardCode}";
+    </script>
     <script src="/resources/js/board/boardList.js"></script>
 </body>
 </html>
