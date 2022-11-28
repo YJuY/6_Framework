@@ -53,14 +53,27 @@ public class BoardController {
 	public String selectBoardList(@PathVariable("boardCode") int boardCode, 
 								  Model model,
 //								  요청시 전달된 값을 얻어 오겠다. 이름(네임속성)이 cp인 값을 필수가 아니다(required=false) 필수가 아니면 1을 넣겠따
-								  @RequestParam(value="cp", required=false,defaultValue="1")int cp) {
+								  @RequestParam(value="cp", required=false,defaultValue="1")int cp,
+								  @RequestParam Map<String, Object> pm) {
 		
 		// Model : 값 전달용 객체
 		// model.addAttribute("k", v) : request scope에 세팅
 		//							    -> forward 시 유지 됨
 		
-		Map<String, Object>map = service.selectBoardList(boardCode, cp);
-		model.addAttribute("map", map); //request scope 세팅
+		// Map<String, Object>map = service.selectBoardList(boardCode, cp);
+		if(pm.get("key") == null) { // 검색이 아닌경우
+			Map<String, Object> map = service.selectBoardList(boardCode, cp);
+			model.addAttribute("map", map); // request scope 세팅
+		} 
+
+		else { // 검색인 경우
+			pm.put("boardCode", boardCode); // 게시판 번호를 pm에 추가
+			// pm == {boardCode, key, query, cp}
+			Map<String, Object> map = service.selectBoardList(pm, cp);
+			model.addAttribute("map", map);
+		}
+
+		//model.addAttribute("map", map); //request scope 세팅
 		
 		return "board/boardList"; // forward
 	}
